@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body x-data="post">
+
+    <div class="text-center">
+        <h1>Album example</h1>
+        <p>Something short and leading about the collection below—its contents, the creator, etc. Make it short and
+            sweet, but not too short so folks don't simply skip over it entirely</p>
+
+        <input type="search" id="input" placeholder="Enter user Id" x-model="post">
+
+        <span x-text="post"></span>
+
+        <button @click="search">Find</button>
+
+        <div class="flex-column flex-md-row d-flex justify-content-center gap-2 mt-1">
+            <button type="button" class="btn btn-primary mx-5 m-md-0 ">main call to action</button>
+            <button type="button" class="btn btn-secondary mx-5 m-md-0 ">secondary action</button>
+        </div>
+    </div>
+<div class="container">
+    <div class="row">
+        <template id="template" x-for="(post,index) in postData" >
+
+            <div class="col-md-4 p-md-3" id="div"  @click="del(index)" >
+                <div class="card p-3 bg-white ">
+                    <img src="paris.jpg" class="rounded" alt="cinque terre">
+
+                    <span id="span" style="color: brown" x-text="post.id"> </span>
+                    <h1 id="h1" x-text="post.title"></h1>
+                    <p id="p" style="padding: 4px" x-text="post.body"></p>
+
+                    <div class="btn-group col-1 pb-2">
+                        <button type="button" id="btn_view" class="btn btn-outline-secondary">view</button>
+                        <button type="button" id="btn_edit" class="btn btn-outline-secondary">edit</button>
+                    </div>
+                </div>
+            </div>
+        </template>
+
+    </div>
+</div>
+
+
+<script src="main.js" type="module"></script>
+
+</body>
+</html>
